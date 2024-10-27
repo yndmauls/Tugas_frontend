@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lifestyle Theme</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <style>
+        /* Custom styling for carousel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        /* Styling for article cards */
+        .article-cards {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4, 1fr);
+            /* Set to 4 columns */
+            margin-top: 1rem;
+        }
+
+        .article-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-content {
+            padding: 0.5rem;
+            /* Reduced padding to make cards smaller */
+        }
+
+        .article-category {
+            color: #1a73e8;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        .article-title {
+            font-size: 1rem;
+            /* Reduced font size */
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .article-meta {
+            font-size: 0.75rem;
+            /* Reduced font size */
+            color: #666;
+        }
+
+        /* Responsive styling for smaller screens */
+        @media (max-width: 768px) {
+            .article-cards {
+                grid-template-columns: repeat(2, 1fr);
+                /* Two columns on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-cards {
+                grid-template-columns: 1fr;
+                /* One column on very small screens */
+            }
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        footer {
+            background-color: #1A1A3C;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #FFC107;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>Lifestyle Vibes</strong></li>
+        </ul>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#" role="button">Subscribe</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="grid">
+            <section>
+                <hgroup>
+                    <h2>Welcome to the Lifestyle Hub</h2>
+                    <h3>Explore trends, wellness, and living your best life</h3>
+                </hgroup>
+                <p>
+                    Lifestyle is all about finding balance, embracing health, and living
+                    in the moment. Whether you're into fitness, mindfulness, or just
+                    looking to elevate your daily routines, you've come to the right
+                    place.
+                </p>
+                <div class="carousel-container">
+                    <div class="carousel-images">
+                        <img src="https://images.unsplash.com/photo-1507919909716-c8262e491cde?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Wellness lifestyle">
+                        <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGlmZXN0eWxlJTIwb2ZmaWNlfGVufDB8fDB8fHww"
+                            alt="office">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3"
+                            alt="Healthy living">
+                    </div>
+                </div>
+                <figcaption>
+                    <a href="https://unsplash.com" target="_blank">Photos from Unsplash</a>
+                </figcaption>
+
+                <h3>HEALTH</h3>
+
+                <!-- Article Cards Section -->
+                <div class="article-cards">
+                    <!-- Article Card 1: Nutrition -->
+                    <div class="article-card">
+                        <a href="https://www.healthline.com/nutrition" target="_blank" rel="noopener noreferrer">
+                            <img src="https://plus.unsplash.com/premium_photo-1669137055841-06079da2325a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhbHRoZm9vZHxlbnwwfHwwfHx8MA%3D%3D"
+                                alt="Healthy Foods">
+                            <div class="article-content">
+                                <p class="article-category">NUTRITION</p>
+                                <h4 class="article-title">Top 10 Healthy Foods You Should Eat</h4>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Article Card 2: Fitness -->
+                    <div class="article-card">
+                        <a href="https://www.verywellfit.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="https://plus.unsplash.com/premium_photo-1670520076714-5daeec2b8377?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zml0bmVzfGVufDB8fDB8fHww"
+                                alt="Fitness">
+                            <div class="article-content">
+                                <p class="article-category">FITNESS</p>
+                                <h4 class="article-title">Effective Workouts for a Healthier You</h4>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Article Card 3: Mental Health -->
+                    <div class="article-card">
+                        <a href="https://www.mentalhealth.gov/" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.istockphoto.com/id/2167024550/photo/writing-down-notes-during-psychotherapy-session.webp?a=1&b=1&s=612x612&w=0&k=20&c=eAEAQxdMauxjuVr0ev4LBKQAOZzDg6jReI6mBaqjHTc="
+                                alt="Mental Health">
+                            <div class="article-content">
+                                <p class="article-category">MENTAL HEALTH</p>
+                                <h4 class="article-title">Understanding Mental Health: A Guide</h4>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Article Card 4: Healthy Lifestyle -->
+                    <div class="article-card">
+                        <a href="https://www.who.int/news-room/fact-sheets/detail/healthy-lifestyle" target="_blank" rel="noopener noreferrer">
+                            <img src="https://plus.unsplash.com/premium_photo-1667520024844-78863d90d8e5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhbHRoJTIwbGlmZXN0eWxlfGVufDB8fDB8fHww"
+                                alt="Healthy Lifestyle">
+                            <div class="article-content">
+                                <p class="article-category">LIFESTYLE</p>
+                                <h4 class="article-title">Tips for a Healthier Lifestyle</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lifestyle Vibes | <a href="https://example.com">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Add your JavaScript functionality here if needed
+    </script>
+</body>
+
+</html>
